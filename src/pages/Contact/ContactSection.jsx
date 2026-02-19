@@ -1,4 +1,35 @@
+import { useState } from "react";
+import { createStudent } from "../../api/students/students.api";
+
 export default function ContactSection() {
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    description: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await createStudent(formData);
+      alert("Form Submitted Successfully");
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        description: "",
+      });
+
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong ❌");
+    }
+  };
+
   return (
     <section className="relative w-full py-28 bg-white overflow-hidden">
 
@@ -43,13 +74,17 @@ export default function ContactSection() {
               Get in Touch with Us
             </h3>
 
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleSubmit}>
 
               <div>
                 <label className="text-sm text-gray-600">Name *</label>
                 <input
                   type="text"
                   placeholder="Your name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
                 />
               </div>
@@ -59,6 +94,10 @@ export default function ContactSection() {
                 <input
                   type="email"
                   placeholder="example@company.com"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
                 />
               </div>
@@ -68,6 +107,10 @@ export default function ContactSection() {
                 <input
                   type="text"
                   placeholder="+91 000 000 0000"
+                  value={formData.phone}
+                  onChange={(e) =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
                   className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
                 />
               </div>
@@ -77,6 +120,10 @@ export default function ContactSection() {
                 <textarea
                   rows="3"
                   placeholder="Leave us a message"
+                  value={formData.description}
+                  onChange={(e) =>
+                    setFormData({ ...formData, description: e.target.value })
+                  }
                   className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm resize-none bg-white focus:outline-none focus:border-gray-400"
                 />
               </div>
