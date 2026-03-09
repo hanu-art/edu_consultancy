@@ -290,7 +290,7 @@ const [formData, setFormData] = useState({
                 href="mailto:support@yourconsultancy.com"
                 className="mt-2 inline-block text-[#0056D2] font-medium hover:underline"
               >
-                support@yourconsultancy.com
+                 anurag.saini@eduskillplace.com
               </a>
             </div>
 
@@ -299,7 +299,7 @@ const [formData, setFormData] = useState({
                 Office Location
               </h4>
               <p className="mt-2 text-gray-600">
-                Vijay Nagar, Indore – 452001
+                96/98 Suyash Vihar , Near Marriot Hotel , Indore
                 <br />
                 Madhya Pradesh, India
               </p>

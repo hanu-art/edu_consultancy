@@ -91,13 +91,12 @@ export default function Footer() {
 
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="mt-1 text-[#007bff]" />
-                Vijay Nagar, Indore – 452001  
-                Madhya Pradesh, India
+                 96/98 Suyash Vihar , Near Marriot Hotel , Indore
               </li>
 
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-[#007bff]" />
-                eduskillplace@gmail.com
+                anurag.saini@eduskillplace.com
               </li>
 
               <li className="flex items-center gap-3">
