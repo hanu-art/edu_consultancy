@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Phone, Linkedin, Instagram, Facebook } from "lucide-react";
+import { Mail, MapPin, Phone,Linkedin, Instagram, Facebook } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -11,13 +12,20 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-semibold text-gray-900">
-              Your Consultancy
-            </h3>
+            <Link to="/" className="flex items-center">
+              <img
+                src="/images/edu_logo.png"
+                alt="EduSkillPlace"
+                className="h-[60px] w-auto object-contain"
+              />
+            </Link>
 
             <p className="mt-4 text-sm text-gray-600 leading-relaxed">
-              We partner with colleges and training institutes to strengthen
-              placement systems, corporate engagement, and student success outcomes.
+              EduSkillPlace provides expert guidance for college and university
+              admissions, helping students choose the right path for their
+              future. We also offer industry-oriented training programs,
+              placement preparation, and career mentoring through strong
+              industry collaborations.
             </p>
           </div>
 
@@ -33,11 +41,13 @@ export default function Footer() {
                   Home
                 </Link>
               </li>
+
               <li>
                 <Link to="/about" className="hover:text-[#007bff] transition">
                   About
                 </Link>
               </li>
+
               <li>
                 <Link to="/contact" className="hover:text-[#007bff] transition">
                   Contact
@@ -54,24 +64,24 @@ export default function Footer() {
 
             <ul className="mt-6 space-y-3 text-sm text-gray-600">
               <li>
-                <Link to="/services/college" className="hover:text-[#007bff] transition">
-                  Campus Recruitment Strategy
-                </Link>
+                Admission Guidance
               </li>
+
               <li>
-                <Link to="/services/it-institute" className="hover:text-[#007bff] transition">
-                  Curriculum Optimization
-                </Link>
+                Industry Training Programs
               </li>
+
               <li>
-                <Link to="/services/job-placement" className="hover:text-[#007bff] transition">
-                  Placement & Mentorship
-                </Link>
+                Placement Preparation
+              </li>
+
+              <li>
+                Internship Assistance
               </li>
             </ul>
           </div>
 
-          {/* Contact Column */}
+          {/* Contact */}
           <div>
             <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
               Contact
@@ -87,27 +97,38 @@ export default function Footer() {
 
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-[#007bff]" />
-                info@yourconsultancy.com
+                eduskillplace@gmail.com
               </li>
 
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-[#007bff]" />
-                +91 98765 43210
+                +91 8962756565
               </li>
 
             </ul>
 
             {/* Social Icons */}
             <div className="flex gap-4 mt-6">
+
               <a href="#" className="text-gray-500 hover:text-[#007bff] transition">
                 <Linkedin size={18} />
               </a>
+
               <a href="#" className="text-gray-500 hover:text-[#007bff] transition">
                 <Instagram size={18} />
               </a>
+
               <a href="#" className="text-gray-500 hover:text-[#007bff] transition">
                 <Facebook size={18} />
               </a>
+
+             <a
+  href="https://wa.me/918962756565"
+  className="text-gray-500 hover:text-green-600 transition"
+>
+  <FaWhatsapp size={18} />
+</a>
+
             </div>
           </div>
 
@@ -115,7 +136,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-gray-200 mt-16 pt-6 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Your Consultancy. All rights reserved.
+          © {new Date().getFullYear()} EduSkillPlace. All rights reserved.
         </div>
 
       </div>

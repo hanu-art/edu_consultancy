@@ -1,66 +1,175 @@
-const colleges = [
-  "Medicaps University",
-  "IPS Academy",
-  "Acropolis Institute of Technology and Research",
-  "Chameli Devi Group of Institutions",
-  "Indore Institute of Science and Technology",
-  "Vaishnav Institute of Technology and Science",
-  "Malwa Institute of Technology",
-  "Shri Vaishnav Vidyapeeth Vishwavidyalaya",
-  "Prestige Institute of Management and Research",
-  "Indore Management Institute",
-  "Renaissance University",
-  "Sanghvi Institute of Management and Science",
+import { useNavigate } from "react-router-dom";
+
+const courseCategories = [
+  {
+    title: "Engineering & Technology",
+    courses: [
+      "B.E / B.Tech",
+      "B.Tech CSE",
+      "B.Tech IT",
+      "B.Tech AI & Data Science",
+      "B.Tech Artificial Intelligence & ML",
+      "B.Tech Mechanical Engineering",
+      "B.Tech ECE",
+      "B.Tech LEET Programs",
+      "M.Tech Programs",
+      "Integrated M.Tech"
+    ]
+  },
+  {
+    title: "Management & Business",
+    courses: [
+      "MBA / PGDM",
+      "BBA",
+      "BBA LLB",
+      "BBA Hospital & Health System Management",
+      "BBA Service Industry Management",
+      "B.Com (Hons)",
+      "M.Com"
+    ]
+  },
+  {
+    title: "Computer & IT",
+    courses: [
+      "BCA",
+      "MCA",
+      "B.Sc Artificial Intelligence",
+      "B.Sc Cyber Security",
+      "B.Sc Data Analytics",
+      "B.Sc Multimedia",
+      "B.Sc Graphics & Web Designing"
+    ]
+  },
+  {
+    title: "Medical & Health Sciences",
+    courses: [
+      "B.Sc Nursing",
+      "MSc Nursing",
+      "GNM",
+      "BAMS (Ayurveda)",
+      "BHMS (Homeopathy)",
+      "Bachelor of Physiotherapy",
+      "Bachelor of Public Health",
+      "MS General Surgery",
+      "MD Anatomy"
+    ]
+  },
+  {
+    title: "Pharmacy",
+    courses: [
+      "B.Pharmacy",
+      "B.Pharmacy LEET",
+      "D.Pharmacy",
+      "M.Pharm Pharmaceutics",
+      "M.Pharm Pharmacology",
+      "Pharm.D"
+    ]
+  },
+  {
+    title: "Arts & Humanities",
+    courses: [
+      "BA",
+      "BA English",
+      "BA History",
+      "MA English",
+      "MA Sanskrit",
+      "MA Music",
+      "BJMC",
+      "BA Media & Communication"
+    ]
+  },
+  {
+    title: "Science Programs",
+    courses: [
+      "B.Sc Chemistry",
+      "M.Sc Chemistry",
+      "B.Sc Biotechnology",
+      "M.Sc Biotechnology",
+      "B.Sc Microbiology"
+    ]
+  },
+  {
+    title: "Hospitality & Tourism",
+    courses: [
+      "BHM",
+      "BHMCT",
+      "Masters in HMCT",
+      "B.Sc Hospitality & Hotel Administration",
+      "Diploma in Food Production",
+      "Diploma in Bakery"
+    ]
+  },
+  {
+    title: "Vocational Programs",
+    courses: [
+      "B.Voc Fashion Designing",
+      "B.Voc Fashion Technology",
+      "B.Voc Food Processing Technology"
+    ]
+  }
 ];
 
-const CollegeInstitutions = () => {
+const CoursesSection = () => {
+
+  const navigate = useNavigate();
+
   return (
-    <section className="py-16">
+    <section className="py-20 bg-[#0056D2]">
+
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}
-        <div className="max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-medium text-gray-700">
-            Recognized Institutions in Indore
+        <div className="text-center max-w-2xl mx-auto">
+
+          <h2 className="text-3xl md:text-4xl font-semibold text-white">
+            Trending Technology & Courses in Colleges & Universities
           </h2>
 
-          <div className="w-16 h-[2px] bg-[#0056D2] mt-5"></div>
+          <div className="w-20 h-[3px] bg-white mx-auto mt-4"></div>
 
-          <p className="mt-6 text-gray-500 leading-relaxed">
-            We provide structured admission guidance across leading engineering,
-            management, pharmacy, and professional institutions in Indore.
-            Our advisory services focus on eligibility alignment, documentation
-            review, and application coordination.
+          <p className="mt-6 text-blue-100 leading-relaxed">
+            EduSkillPlace provides admission guidance across a wide range of
+            academic programs including engineering, management, medical
+            sciences, arts, pharmacy, hospitality, and emerging technology fields.
           </p>
+
         </div>
 
-        {/* Institutional List */}
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-5">
+        {/* Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mt-14">
 
-          {colleges.map((college, index) => (
-            <div key={index} className="flex items-start gap-3">
-              
-              {/* Minimal Brand Marker */}
-              <span className="mt-2 w-2 h-2 bg-[#0056D2]"></span>
+          {courseCategories.map((category, index) => (
+            <div
+              key={index}
+              onClick={() => navigate("/contact")}
+              className="bg-white rounded-lg p-6 shadow-sm cursor-pointer
+              hover:shadow-xl hover:-translate-y-1 transition duration-300"
+            >
 
-              <p className="text-gray-700 font-medium text-[15px] leading-snug">
-                {college}
-              </p>
+              <h3 className="text-lg font-semibold text-gray-700 border-l-4 border-[#007bff] pl-3">
+                {category.title}
+              </h3>
+
+              <ul className="mt-5 space-y-2 text-sm text-gray-600">
+
+                {category.courses.map((course, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <span className="text-[#007bff]">•</span>
+                    {course}
+                  </li>
+                ))}
+
+              </ul>
 
             </div>
           ))}
 
         </div>
 
-        {/* Disclaimer */}
-        <p className="mt-10 text-sm text-gray-500 max-w-3xl">
-          Admission decisions remain subject to institutional policies and
-          eligibility criteria. We provide advisory and application support services.
-        </p>
-
       </div>
+
     </section>
   );
 };
 
-export default CollegeInstitutions;
+export default CoursesSection;

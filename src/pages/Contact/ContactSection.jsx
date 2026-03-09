@@ -3,12 +3,18 @@ import { createStudent } from "../../api/students/students.api";
 
 export default function ContactSection() {
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    description: "",
-  });
+const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  phone: "",
+  education: "",
+  category: "",
+  state: "",
+  city: "",
+  referral: "",
+  referredPerson: "",
+  description: "",
+});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,12 +23,18 @@ export default function ContactSection() {
       await createStudent(formData);
       alert("Form Submitted Successfully");
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        description: "",
-      });
+     setFormData({
+  name: "",
+  email: "",
+  phone: "",
+  education: "",
+  category: "",
+  state: "",
+  city: "",
+  referral: "",
+  referredPerson: "",
+  description: "",
+});
 
     } catch (error) {
       console.error(error);
@@ -66,78 +78,173 @@ export default function ContactSection() {
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 gap-16">
+{/* Form Card */}
+<div className="bg-[#fafdff] p-8">
 
-          {/* Form Card */}
-          <div className="bg-[#fafdff] p-8">
+  <h3 className="text-lg font-medium text-[#1f2d3d] mb-6">
+    Get in Touch with Us
+  </h3>
 
-            <h3 className="text-lg font-medium text-[#1f2d3d] mb-6">
-              Get in Touch with Us
-            </h3>
+  <form className="space-y-5" onSubmit={handleSubmit}>
 
-            <form className="space-y-5" onSubmit={handleSubmit}>
+    {/* Name */}
+    <div>
+      <label className="text-sm text-gray-600">Name *</label>
+      <input
+        type="text"
+        placeholder="Your name"
+        value={formData.name}
+        onChange={(e) =>
+          setFormData({ ...formData, name: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
+      />
+    </div>
 
-              <div>
-                <label className="text-sm text-gray-600">Name *</label>
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
-                />
-              </div>
+    {/* Email */}
+    <div>
+      <label className="text-sm text-gray-600">Email *</label>
+      <input
+        type="email"
+        placeholder="example@email.com"
+        value={formData.email}
+        onChange={(e) =>
+          setFormData({ ...formData, email: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
+      />
+    </div>
 
-              <div>
-                <label className="text-sm text-gray-600">Email *</label>
-                <input
-                  type="email"
-                  placeholder="example@company.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
-                />
-              </div>
+    {/* Phone */}
+    <div>
+      <label className="text-sm text-gray-600">Phone Number</label>
+      <input
+        type="text"
+        placeholder="+91 000 000 0000"
+        value={formData.phone}
+        onChange={(e) =>
+          setFormData({ ...formData, phone: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
+      />
+    </div>
 
-              <div>
-                <label className="text-sm text-gray-600">Phone Number</label>
-                <input
-                  type="text"
-                  placeholder="+91 000 000 0000"
-                  value={formData.phone}
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone: e.target.value })
-                  }
-                  className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
-                />
-              </div>
+    {/* Current Education */}
+    <div>
+      <label className="text-sm text-gray-600">Current Education</label>
+      <input
+        type="text"
+        placeholder="e.g. 12th / B.Tech / Diploma"
+        value={formData.education}
+        onChange={(e) =>
+          setFormData({ ...formData, education: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
+      />
+    </div>
 
-              <div>
-                <label className="text-sm text-gray-600">Message *</label>
-                <textarea
-                  rows="3"
-                  placeholder="Leave us a message"
-                  value={formData.description}
-                  onChange={(e) =>
-                    setFormData({ ...formData, description: e.target.value })
-                  }
-                  className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm resize-none bg-white focus:outline-none focus:border-gray-400"
-                />
-              </div>
+    {/* Category */}
+    <div>
+      <label className="text-sm text-gray-600">Category</label>
+      <select
+        value={formData.category}
+        onChange={(e) =>
+          setFormData({ ...formData, category: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
+      >
+        <option value="">Select Category</option>
+        <option>General</option>
+        <option>OBC</option>
+        <option>SC</option>
+        <option>ST</option>
+      </select>
+    </div>
 
-              {/* Brand Button */}
-              <button
-                type="submit"
-                className="w-full bg-[#0056D2] hover:bg-[#0047B3] text-white text-sm font-medium px-6 py-2.5 transition"
-              >
-                Send Message
-              </button>
+    {/* State */}
+    <div>
+      <label className="text-sm text-gray-600">State</label>
+      <input
+        type="text"
+        placeholder="Your state"
+        value={formData.state}
+        onChange={(e) =>
+          setFormData({ ...formData, state: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
+      />
+    </div>
 
-            </form>
-          </div>
+    {/* City */}
+    <div>
+      <label className="text-sm text-gray-600">City</label>
+      <input
+        type="text"
+        placeholder="Your city"
+        value={formData.city}
+        onChange={(e) =>
+          setFormData({ ...formData, city: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
+      />
+    </div>
+
+    {/* Referral */}
+    <div>
+      <label className="text-sm text-gray-600">Referral By</label>
+      <select
+        value={formData.referral}
+        onChange={(e) =>
+          setFormData({ ...formData, referral: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
+      >
+        <option value="">Select Option</option>
+        <option>Instagram</option>
+        <option>Facebook</option>
+        <option>LinkedIn</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    {/* Other Person Name */}
+    <div>
+      <label className="text-sm text-gray-600">Other (Person Name)</label>
+      <input
+        type="text"
+        placeholder="If referred by someone"
+        value={formData.referredPerson}
+        onChange={(e) =>
+          setFormData({ ...formData, referredPerson: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm bg-white focus:outline-none focus:border-gray-400"
+      />
+    </div>
+
+    {/* Message */}
+    <div>
+      <label className="text-sm text-gray-600">Message *</label>
+      <textarea
+        rows="3"
+        placeholder="Leave us a message"
+        value={formData.description}
+        onChange={(e) =>
+          setFormData({ ...formData, description: e.target.value })
+        }
+        className="mt-2 w-full border border-gray-300 px-4 py-2.5 text-sm resize-none bg-white focus:outline-none focus:border-gray-400"
+      />
+    </div>
+
+    {/* Button */}
+    <button
+      type="submit"
+      className="w-full bg-[#0056D2] hover:bg-[#0047B3] text-white text-sm font-medium px-6 py-2.5 transition"
+    >
+      Send Message
+    </button>
+
+  </form>
+</div>
 
           {/* Support Info */}
           <div className="space-y-10 text-sm text-gray-700">
@@ -165,7 +272,10 @@ export default function ContactSection() {
                 Monday – Friday, 9:00 AM – 6:00 PM
               </p>
               <p className="mt-2 text-[#1f2d3d]">
-                +91 98716 98765
+                +91 8962756565
+              </p>
+               <p className="mt-2 text-[#1f2d3d]">
+                +91 8821988486
               </p>
             </div>
 

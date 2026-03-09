@@ -4,9 +4,9 @@ export const NAV_LINKS = [
   {
     label: "Services",
     dropdown: [
-      { label: "College", path: "/services/college" },
-      { label: "IT Institute", path: "/services/it-institute" },
-      { label: "Job Placement", path: "/services/job-placement" },
+      { label: "Admission Servicess", path: "/services/college" },
+      { label: "IT and Non IT Skill Development", path: "/services/it-institute" },
+      { label: "Placement Services", path: "/services/job-placement" },
     ],
   },
   { label: "Contact Us", path: "/contact" },
