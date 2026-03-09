@@ -96,7 +96,7 @@ export default function Footer() {
 
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-[#007bff]" />
-                anurag.saini@eduskillplace.com
+                 hr@eduskillplace.com
               </li>
 
               <li className="flex items-center gap-3">

@@ -290,7 +290,7 @@ const [formData, setFormData] = useState({
                 href="mailto:support@yourconsultancy.com"
                 className="mt-2 inline-block text-[#0056D2] font-medium hover:underline"
               >
-                 anurag.saini@eduskillplace.com
+                 hr@eduskillplace.com
               </a>
             </div>
 
